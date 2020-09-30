@@ -1,8 +1,19 @@
 import numpy as np
+from sympy import *
 import time
 
 print("\n\nMethod of False position of solving algebraic and transcendental equations")
 print("~harikrishnav")
+
+x=Symbol('x')
+def getfn():
+	e=sympify(input("Enter function in x: "))		#ENTER THE APPROPRIATE FUNCTION HERE	
+	f=e.subs({'x':x})
+	return f
+
+e=getfn()
+f=lambdify(Symbol('x'),e,'numpy')
+
 def getLimits():
 	print("\nNOTE:\n1. Enter Angles in Radians only.")
 	print("2. a should be smaller than b\n")
@@ -11,10 +22,6 @@ def getLimits():
 	return a,b
 
 a,b=getLimits()
-
-def f(x):
-	return (np.cos(x)+3-2*x)		#ENTER THE APPROPRIATE FUNCTION HERE
-
 
 while(f(a)*f(b)>0 or a>b):
 	print("\nError")
@@ -26,9 +33,14 @@ es=np.float32(0.5*np.float_power(10,2-n))
 start=time.perf_counter()
 ea=1
 xold=a
-x=(a+b)/2
+x=1
+count=0
+print('\n')
 while ea>es:
 	x=b-(f(b)*(a-b))/(f(a)-f(b))
+	count+=1
+	print(count,end='   ')
+	print(x)
 	if f(a)*f(x)>0:
 		a=x
 	else:
