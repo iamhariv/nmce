@@ -35,6 +35,9 @@ while ea>es:
 	val = f(xold)
 	dval = deriv(xold)	
 	x=xold-(val/dval)
+	print("Iteration ",end=' ')
+	print(count,end=' ')
+	print(x)
 	ea=np.fabs((100*(x-xold))/x)
 	xold=x
 	
