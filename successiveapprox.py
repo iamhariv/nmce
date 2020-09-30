@@ -35,10 +35,14 @@ start=time.perf_counter()
 ea=1
 xold=x
 count=0
+print('\n')
 while (ea>es):
 	count+=1
 	xold=x	
 	x=phi(xold)
+	print("Iteration ",end=' ')
+	print(count,end=' ')
+	print(x)
 	if(np.round(x,n)==np.round(xold,n)):
 		break
 	
