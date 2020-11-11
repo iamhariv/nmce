@@ -32,7 +32,7 @@ def j(A):
 	print("Phi = ",phi)
 	theta1=np.arctan(-phi-np.sqrt(1+(phi*phi)))
 	theta2=np.arctan(-phi+np.sqrt(1+(phi*phi)))
-	if theta1<np.pi/4:
+	if np.abs(theta1)<np.pi/4:
 		theta=theta1
 	else:
 		theta2
