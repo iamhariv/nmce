@@ -32,7 +32,10 @@ def j(A):
 	print("Phi = ",phi)
 	theta1=np.arctan(-phi-np.sqrt(1+(phi*phi)))
 	theta2=np.arctan(-phi+np.sqrt(1+(phi*phi)))
-	theta=np.minimum(theta1,theta2)
+	if theta1<np.pi/4:
+		theta=theta1
+	else:
+		theta2
 	print("Theta = ",theta)
 	J[p,p]=np.cos(theta)
 	J[p,q]=np.sin(theta)
